@@ -11,8 +11,23 @@ export default {
       colors: {
         background: "var(--background)",
         textColor: "var(--textColor)",
+        btnColor: "var(--btnColor)",
+        btnText: "var(--btnText)",
+        border: "var(--border)"
       },
+      padding: {
+        md: "20px",
+        sm: "10px",
+        lg: "40px"
+
+      },
+      margin: {
+        md: "2rem",
+        sm: "1rem"
+      }
     },
   },
   plugins: [],
 } satisfies Config;
+
+

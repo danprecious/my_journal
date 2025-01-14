@@ -19,18 +19,15 @@ const ThemeSwitcher: React.FC<Theme> = ({ value, text }) => {
   };
 
   return (
-    <div className="p-5">
-      Theme switcher
-      <button
-        className="p-5 bg-textColor text-background"
-        value={value}
-        onClick={(e) => {
-          switchTheme(e);
-        }}
-      >
-        {text}
-      </button>
-    </div>
+    <button
+      className="w-full h-full"
+      value={value}
+      onClick={(e) => {
+        switchTheme(e);
+      }}
+    >
+      {text}
+    </button>
   );
 };
 

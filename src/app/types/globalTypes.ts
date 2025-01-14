@@ -15,3 +15,7 @@ export interface Theme {
     value: string,
     text: string
 }
+
+export interface formType {
+    journalNote: string,
+}
