@@ -41,7 +41,7 @@ const History = () => {
     <div className='overflow-y-scroll'>
         {mockData.map((journal): React.ReactNode => {
                return (
-                <button key={journal.id} className=" py-3 px-2 flex border-b-[1px] border-solid border-stone-500 border-opacity-10 w-full">
+                <button key={journal.id} className=" py-3 px-2 flex border-y-[1px] border-solid border-stone-500 border-opacity-10 w-full hover:opacity-75 hover:border-opacity-100 ">
                     <p className='text-sm'>{journal.title}</p>
                     {/* <p className='text-xs'>{journal.date}</p> */}
                 </button>
