@@ -1,19 +1,15 @@
-import React from 'react'
-import WritingForm from './writingForm'
+import React from "react";
+import WritingForm from "./writingForm";
 
 const WritingInterface = () => {
   return (
-    <section className='w-full h-full pt-md flex-col'>
-    
-      <div className='mb-5 text-[1.5rem]'>
-      Start Writing...
-    </div>
+    <section className="w-full h-full pt-md flex flex-col justify-center border-red-500">
+      
       <div className="">
-            <WritingForm />
-
+        <WritingForm />
       </div>
-      </section>
-  )
-}
+    </section>
+  );
+};
 
-export default WritingInterface
+export default WritingInterface;

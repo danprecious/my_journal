@@ -19,3 +19,9 @@ export interface Theme {
 export interface formType {
     journalNote: string,
 }
+
+export interface UniqueJournalParams {
+    params: {
+        journalId: string
+    }
+}
