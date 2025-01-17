@@ -5,7 +5,7 @@ import WritingInterface from "@/components/writingInterface";
 
 export default function Home() {
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <WritingInterface />
     </div>
   );

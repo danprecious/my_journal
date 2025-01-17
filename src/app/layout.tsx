@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SideBar from "@/components/sideBar";
 import Logo from "@/components/logo/logo";
+import MobileMenuBar from "@/components/mobileMenuBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,16 +28,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background h-[100vh] text-textColor`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-textColor`}
       >
         <header className="flex p-4 justify-center lg:hidden sticky top-0">
           <Logo />
         </header>
-        <div className=" overflow-hidden flex h-[90%]">
+        <div className="  flex h-[80%]">
           <div className="hidden lg:flex w-[20%]  h-full ">
             <SideBar />
           </div>
           <div className="w-full p-md h-full flex">{children}</div>
+        </div>
+        <div className="flex justify-center lg:hidde border-green-400 border-[5px] border-solid">
+          <MobileMenuBar />
         </div>
       </body>
     </html>

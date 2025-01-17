@@ -45,7 +45,7 @@ const WritingForm = () => {
         }`}
       />
 
-      <div className="mt-5 flex justify-center lg:block">
+      <div className="mt-5 flex justify-end lg:block">
         {textAreaActive && (
           <button type="submit" className="btn">
             Save
