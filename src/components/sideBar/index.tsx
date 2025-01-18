@@ -5,7 +5,7 @@ import History from "./history";
 
 const SideBar = () => {
   return (
-    <section className="comp-border rounded-tr-lg rounded-br-lg w-full h-[100vh] pt-md">
+    <section className="comp-border rounded-tr-lg rounded-br-lg w-full  pt-md">
       <Logo />
       <Profile />
       <History />

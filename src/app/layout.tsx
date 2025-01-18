@@ -28,18 +28,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-textColor`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background border-green-800 h-[100vh] flex flex-col text-textColor`}
       >
-        <header className="flex p-4 justify-center lg:hidden sticky top-0">
+        <header className="flex h-[5%] items-center justify-center lg:hidden sticky top-0">
           <Logo />
         </header>
-        <div className="  flex h-[80%]">
-          <div className="hidden lg:flex w-[20%]  h-full ">
+        <div className="flex h-[90%] lg:h-full border-red-700">
+          <div className="hidden lg:flex lg:w-[20%] w-0 h-0 lg:h-[100%]">
             <SideBar />
           </div>
-          <div className="w-full p-md h-full flex">{children}</div>
+          <div className="w-full p-md h-full">{children}</div>
         </div>
-        <div className="flex justify-center lg:hidde border-green-400 border-[5px] border-solid">
+        <div className="flex justify-center items-center max-h-[5%] h-[5%] lg:hidden  ">
           <MobileMenuBar />
         </div>
       </body>

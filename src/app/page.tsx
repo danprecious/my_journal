@@ -1,12 +1,9 @@
-import Image from "next/image";
-import ThemeSwitcher from "./utils/themeSwitcher";
-import SideBar from "@/components/sideBar";
-import WritingInterface from "@/components/writingInterface";
+import WritingForm from "@/components/writingInterface/writingForm";
 
 export default function Home() {
   return (
-    <div className="w-full h-full">
-      <WritingInterface />
-    </div>
+    <section className="w-full h-full  justify-center border-red-500">
+      <WritingForm />
+    </section>
   );
 }

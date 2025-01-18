@@ -66,7 +66,7 @@ const Profile = () => {
 
   return (
     <div className="flex flex-col justify-center items-center my-sm">
-      <div className="lg:h-[50px] lg:w-[50px] rounded-full bg-white"></div>
+      <div className="lg:min-h-[50px] lg:min-w-[50px] rounded-full bg-white flex"></div>
 
       <div className="my-sm text-center w-full px-2">
         <h3 className="font-bold text-[1.1rem]">Kayode Dan Precious</h3>

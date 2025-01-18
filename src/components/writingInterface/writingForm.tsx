@@ -26,14 +26,14 @@ const WritingForm = () => {
   } = useForm({ resolver: zodResolver(formSchema) });
 
   return (
-    <form onSubmit={handleSubmit(submitJournal)} className="w-full h-full">
-      <h3 className="mb-5 text-[1.5rem] text-center">
+    <form onSubmit={handleSubmit(submitJournal)} className="w-full">
+      <div className="">
         
         
         {!textAreaActive && (
-          "Start Wrting..."
+         <p className="mb-5 text-[1.5rem] text-center">"Start Wrting..."</p> 
         )}
-        </h3>
+        </div>
       <textarea
         id="journalNote"
         {...register("journalNote")}
