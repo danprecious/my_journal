@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 *{
-  @apply border
+  /* @apply border */
 }
 
 :root {
   --background: #ffffff;
+  --background-shade: #f0efef;
   --textColor: #171717;
   --btnColor: #27FC83; 
   --btnText: black;
@@ -17,7 +18,8 @@
 
 
 :root[theme="dark"] {
-  background-color: #0a0a0a;
+  --background: #0a0a0a;
+  --background-shade: #1A1A19;
   --textColor: white;
   --btnColor: #27FC83;
   --btnText: black;
@@ -25,6 +27,7 @@
 }
 :root[theme="dark-contrast"] {
   --background: #0a0a0a;
+  --background-shade: #1A1A19;
   --textColor: white;
   --btnColor: #27FC83;
   --btnText: black;
@@ -32,6 +35,7 @@
 }
 :root[theme="dark-dim"] {
   --background: #23221C;
+  --background-shade: #1A1A19;
   --textColor: #DBD1D1;
   --btnColor: #27FC83;
   --btnText: black;
@@ -41,6 +45,7 @@
 
 :root[theme="serpia-contrast"] {
   --background: #D1AF27;
+  --background-shade: #dab937;
   --textColor: black;
   --btnColor: black;
   --btnText: white;
@@ -49,6 +54,7 @@
 }
 :root[theme="serpia-lighter"] {
   --background: #FFECA1;
+  --background-shade: #FFECA1;
   --textColor: black;
   --btnColor: black;
   --btnText: white;
@@ -58,6 +64,7 @@
 
 :root[theme = "grayscale"] {
   --background: #F1F1F1;
+  --background-shade: #ffffff;
   --textColor: black;
   --border: #707070;
   --btnColor: black;
@@ -68,16 +75,17 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
+    --background-shade: #1A1A19;
     --textColor: #ededed;
     --btnColor: #27FC83;
     --btnText: black;
-    --border: #707070;
+    --border: #70707067;
   }
 }
 
 
   .comp-border{
-    @apply border-solid border-[var(--border)] border-opacity-15 border-[1.5px];
+    @apply border-solid border-[var(--border)] border-opacity-5 border-[1px];
   }
 
   .btn{

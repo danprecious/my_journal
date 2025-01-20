@@ -31,7 +31,7 @@ const WritingForm = () => {
         
         
         {!textAreaActive && (
-         <p className="mb-5 text-[1.5rem] text-center">"Start Wrting..."</p> 
+         <p className="mb-5 text-[1.5rem] text-center lg:text-left">"Start Wrting..."</p> 
         )}
         </div>
       <textarea

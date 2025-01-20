@@ -5,6 +5,8 @@ import { BiArrowToBottom } from "react-icons/bi";
 import { BsArrow90DegDown } from "react-icons/bs";
 import {
   FaAngleDown,
+  FaAnglesUp,
+  FaAngleUp,
   FaArrowDownAZ,
   FaArrowDownShortWide,
 } from "react-icons/fa6";
@@ -72,7 +74,7 @@ const Profile = () => {
         <h3 className="font-bold text-[1.1rem]">Kayode Dan Precious</h3>
         <p className="opacity-60 text-xs pb-2">kdpcoder@gmail.com</p>
         <button className="" onClick={() => setDropDown(!dropDown)}>
-          <FaAngleDown />
+         {dropDown ?  <FaAngleUp /> : <FaAngleDown />  } 
         </button>
         {dropDown && (
           <div className="relative w-full">
