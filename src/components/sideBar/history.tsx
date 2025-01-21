@@ -1,39 +1,27 @@
 "use client"
 
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { mockHistoryData } from "@/app/types/globalTypes";
+import ByInput from "./search/byInput";
 
-export const mockData = [
-  {
-    id: "1",
-    title: "I worked out today...",
-    note: "some mock notes here, i did this today, how today went, blabla",
-    date: "September 8, 2018",
-    time: "9:49 PM",
-    category: "School",
-  },
-  {
-    id: "2",
-    title: "I did nothing today...",
-    note: "some mock notes here, i did this today, how today went, blabla",
-    date: "September 10, 2028",
-    time: "9:50 PM",
-    category: "Reading",
-  },
-  {
-    id: "3",
-    title: "I wrote some codes...",
-    note: "some mock notes here, i did this today, how today went, blabla",
-    date: "September 18, 2021",
-    time: "9PM",
-    category: "Development",
-  },
-];
 
-const History = () => {
+const History: React.FC<mockHistoryData> = ({data}) => {
+
+  // const [historyData, setHistoryData] = useState<mockHistoryData>(data);
+
+
   return (
-    <div className="overflow-y-scroll">
-      {mockData.map((journal): React.ReactNode => {
+    <div className="w-full min-w-full">
+
+    <div className="px-1 pb-5 flex justify-center">
+      <ByInput />
+    </div>
+
+      <div className="overflow-y-scroll">
+
+
+      {data.map((journal): React.ReactNode => {
         return (
           <Link
             href={`/viewJournal/${journal.id}`}
@@ -45,6 +33,7 @@ const History = () => {
           </Link>
         );
       })}
+          </div>
     </div>
   );
 };

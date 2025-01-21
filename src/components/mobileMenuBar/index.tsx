@@ -2,17 +2,19 @@
 
 import { useState } from "react";
 import Profile from "../sideBar/profile";
+import History from "../sideBar/history";
+import { mockData } from "@/app/utils/mockData";
 
 const MobileMenuBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="relative flex justify-center items-center flex-col">
+    <div className="relative flex justify-center items-center  flex-col">
       {menuOpen && (
-        <div className="absolute bottom-0 bg-backgroundShade comp-border h-[90vh] w-[95vw] rounded-t-[4em] p-md flex justify-center items-center">
+        <div className="absolute bottom-0 bg-backgroundShade comp-border h-[90vh] w-[95vw] rounded-t-[4em]  flex flex-col justify-center items-center">
           <Profile />
 
-          
+          <History data={mockData} />
         </div>
       )}
       <button
