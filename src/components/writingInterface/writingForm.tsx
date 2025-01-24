@@ -26,24 +26,26 @@ const WritingForm = () => {
   } = useForm({ resolver: zodResolver(formSchema) });
 
   return (
-    <form onSubmit={handleSubmit(submitJournal)} className="w-full">
+    <form onSubmit={handleSubmit(submitJournal)} className="w-full justify-center  flex-col items-center">
       <div className="">
         
         
         {!textAreaActive && (
-         <p className="mb-5 text-[1.5rem] text-center lg:text-left">"Start Wrting..."</p> 
+         <p className="mb-10 text-[1.5rem] text-center ">Start Writing...</p> 
         )}
         </div>
-      <textarea
+     <div className="flex justify-center w-full">
+       <textarea
         id="journalNote"
         {...register("journalNote")}
         onFocus={() => {
           setTextAreaActive(true);
         }}
-        className={`resize-none w-full bg-background comp-border outline-none lg:p-md py-1 px-2  lg:rounded-md lg:h-[70vh ${
-          textAreaActive ? "h-[70vh] rounded-lg" : "rounded-[2rem]"
+        className={`resize-none w-full bg-background comp-border outline-none py-1 px-2  lg:h-[70vh ${
+          textAreaActive ? "h-[70vh]  lg-w-[100%]" : "rounded-[2rem]  lg:w-[90%] transition-all h-[2.5em]"
         }`}
-      />
+        />
+        </div>
 
       <div className="mt-5 flex justify-end lg:block">
         {textAreaActive && (
