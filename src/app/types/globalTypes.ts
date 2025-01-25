@@ -31,9 +31,10 @@ export interface mockHistoryItem {
     title: string;
     note: string;
     date: string;
-    time: string;
     category: string;
 }
+
+
 
 export interface mockHistoryData {
   data: mockHistoryItem[],
