@@ -1,5 +1,6 @@
 "use client";
 import { formType } from "@/app/types/globalTypes";
+import { retrieveJournal, retrieveOneJournal, saveJournal } from "@/app/utils/localStoreUtils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ACTION_SERVER_ACTION } from "next/dist/client/components/router-reducer/router-reducer-types";
 import { useState } from "react";
@@ -7,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const formSchema = z.object({
-  journalNote: z.string().min(1, { message: "Journal note is required" }),
+  note: z.string().min(1, { message: "Journal note is required" }),
 });
 
 const WritingForm = () => {
@@ -17,6 +18,24 @@ const WritingForm = () => {
 
   const submitJournal = async (data: any) => {
     console.log(data);
+
+    const dateObject = new Date();
+    // const datee = date.getDate() + Math.random();
+const note: string = data.note;
+    console.log(dateObject.toDateString());
+
+    const title = note.slice(0, 15);
+    const category = "life";
+    const dateId = Date.now().toString(36);
+    const date = dateObject.toLocaleString();
+
+    const journal = {id: dateId, title, note, date, category};
+
+    await saveJournal(journal);
+    // await retrieveJournal();
+    // await retrieveOneJournal("m6dr5gzy");
+
+
   };
 
   const {
@@ -36,8 +55,8 @@ const WritingForm = () => {
         </div>
      <div className="flex justify-center w-full">
        <textarea
-        id="journalNote"
-        {...register("journalNote")}
+        id="note"
+        {...register("note")}
         onFocus={() => {
           setTextAreaActive(true);
         }}
