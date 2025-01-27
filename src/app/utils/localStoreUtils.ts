@@ -42,8 +42,10 @@ export const retrieveOneJournal = async (id: string) => {
   try {
     const journal = await db.journals.get(id);
     console.log(journal);
+    return journal;
   
   } catch (error) {
     console.log("Error retreiving journal", error);
+    throw new Error("Error retreiving journal");
   }
 };

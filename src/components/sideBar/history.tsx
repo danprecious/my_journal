@@ -11,13 +11,13 @@ import { retrieveJournal } from "@/app/utils/localStoreUtils";
 const History: React.FC<mockHistoryData> = ({ data }) => {
   // const [historyData, setHistoryData] = useState<mockHistoryData>(data);
 
+  const [searchQuery, setSearchQuery] = useState("")
   const journals = useLiveQuery(async () => {
     const journalData = await retrieveJournal();
-    // console.log(journalData);
     return journalData;
   })
 
-  // console.log(journals);
+  
 
   return (
     <div className="w-full min-w-full">
