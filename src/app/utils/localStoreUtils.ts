@@ -8,7 +8,7 @@ export interface Journal {
   category: string;
 }
 
-const db = new Dexie("JournalDatabase") as Dexie & {
+export const db = new Dexie("JournalDatabase") as Dexie & {
   journals: EntityTable<Journal, "id">;
 };
 
@@ -31,8 +31,10 @@ export const retrieveJournal = async () => {
     const journals = await db.journals.toArray();
 
     console.log(journals);
+    return journals;
   } catch (error) {
     console.log("Error retreiving journal", error);
+    throw new Error("Error retrieving journal from localStore")
   }
 };
 
@@ -40,6 +42,7 @@ export const retrieveOneJournal = async (id: string) => {
   try {
     const journal = await db.journals.get(id);
     console.log(journal);
+  
   } catch (error) {
     console.log("Error retreiving journal", error);
   }
