@@ -29,12 +29,10 @@ const note: string = data.note;
     const dateId = Date.now().toString(36);
     const date = dateObject.toLocaleString();
 
-    const journal = {id: dateId, title, note, date, category};
+    const journal = {id: dateId, title, note, date, category, status: "queued"};
 
     await saveJournal(journal);
-    // await retrieveJournal();
-    // await retrieveOneJournal("m6dr5gzy");
-
+  
 
   };
 

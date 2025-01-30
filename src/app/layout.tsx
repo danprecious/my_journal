@@ -4,6 +4,7 @@ import "./globals.css";
 import SideBar from "@/components/sideBar";
 import Logo from "@/components/logo/logo";
 import MobileMenuBar from "@/components/mobileMenuBar";
+import RegisterWorker from "./utils/registerWorker";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background border-green-800 h-[100vh] flex flex-col text-textColor`}
       >
+        <RegisterWorker />
         <header className="flex h-[5%] items-center justify-center lg:hidden sticky top-0">
           <Logo />
         </header>

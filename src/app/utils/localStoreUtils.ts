@@ -6,6 +6,7 @@ export interface Journal {
   note: string;
   date: string;
   category: string;
+  status: string;
 }
 
 export const db = new Dexie("JournalDatabase") as Dexie & {
@@ -25,6 +26,9 @@ export const saveJournal = async (journal: Journal) => {
     console.log(error);
   }
 };
+
+
+
 
 export const retrieveJournal = async () => {
   try {
