@@ -1,6 +1,10 @@
 "use client";
 import { formType } from "@/app/types/globalTypes";
-import { retrieveJournal, retrieveOneJournal, saveJournal } from "@/app/utils/localStoreUtils";
+import {
+  retrieveJournal,
+  retrieveOneJournal,
+  saveJournal,
+} from "@/app/utils/localStoreUtils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ACTION_SERVER_ACTION } from "next/dist/client/components/router-reducer/router-reducer-types";
 import { useState } from "react";
@@ -21,7 +25,7 @@ const WritingForm = () => {
 
     const dateObject = new Date();
     // const datee = date.getDate() + Math.random();
-const note: string = data.note;
+    const note: string = data.note;
     console.log(dateObject.toDateString());
 
     const title = note.slice(0, 15);
@@ -29,11 +33,16 @@ const note: string = data.note;
     const dateId = Date.now().toString(36);
     const date = dateObject.toLocaleString();
 
-    const journal = {id: dateId, title, note, date, category, status: "queued"};
+    const journal = {
+      id: dateId,
+      title,
+      note,
+      date,
+      category,
+      status: "queued",
+    };
 
     await saveJournal(journal);
-  
-
   };
 
   const {
@@ -43,26 +52,29 @@ const note: string = data.note;
   } = useForm({ resolver: zodResolver(formSchema) });
 
   return (
-    <form onSubmit={handleSubmit(submitJournal)} className="w-full justify-center  flex-col items-center">
+    <form
+      onSubmit={handleSubmit(submitJournal)}
+      className="w-full justify-center  flex-col items-center"
+    >
       <div className="">
-        
-        
         {!textAreaActive && (
-         <p className="mb-10 text-[1.5rem] text-center ">Start Writing...</p> 
+          <p className="mb-10 text-[1.5rem] text-center ">Start Writing...</p>
         )}
-        </div>
-     <div className="flex justify-center w-full">
-       <textarea
-        id="note"
-        {...register("note")}
-        onFocus={() => {
-          setTextAreaActive(true);
-        }}
-        className={`resize-none w-full bg-background comp-border outline-none py-1 px-2  lg:h-[70vh ${
-          textAreaActive ? "h-[70vh]  lg-w-[100%]" : "rounded-[2rem]  lg:w-[90%] transition-all h-[2.5em]"
-        }`}
+      </div>
+      <div className="flex justify-center w-full">
+        <textarea
+          id="note"
+          {...register("note")}
+          onFocus={() => {
+            setTextAreaActive(true);
+          }}
+          className={`resize-none w-full bg-background comp-border outline-none py-1 px-2  lg:h-[70vh ${
+            textAreaActive
+              ? "h-[70vh]  lg-w-[100%]"
+              : "rounded-[2rem]  lg:w-[90%] transition-all h-[2.5em]"
+          }`}
         />
-        </div>
+      </div>
 
       <div className="mt-5 flex justify-end lg:block">
         {textAreaActive && (
