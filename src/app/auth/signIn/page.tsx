@@ -24,7 +24,7 @@ const SignIn = () => {
 
   return (
     <div className=" py-10 w-full h-[80vh]">
-      <div className="py-6">
+      <div className="pt-6">
         <h1 className="text-center font-bold text-[2rem]">Sign in</h1>
         <p className="text-sm text-center opacity-70 py-3">
           continue your journalling journey
@@ -34,6 +34,10 @@ const SignIn = () => {
         onSubmit={handleSubmit(signInUser)}
         className="w-full px-3 py-5  flex flex-col justify-center items-center "
       >
+        <div className="py-5 w-full max-w-[22em] flex justify-center">
+          <p className="px-2">Dont have an account? </p>
+            <Link href = "/auth/signUp" className="underline px-2 text-right text-blue-600">Create one</Link>
+        </div>
         <div className="w-full flex justify-center mb-3">
           <input
             type="email"
@@ -56,11 +60,12 @@ const SignIn = () => {
         <div className="py-2 w-full  flex justify-center">
             <button type="submit" className="px-2 w-full rounded-md py-2 bg-backgroundShade max-w-[22em] bg-stone-900 text-white">Sign in</button>
         </div>
-
-
-        <div className="py-5">
-            <Link href = "/forgotPassword" className="underline text-right text-blue-600">forgot password?</Link>
+        <div className="py-5 max-w-[22em] ">
+            <Link href = "/auth/forgotPassword" className="underline text-right text-blue-600">forgot password?</Link>
         </div>
+
+
+
 
       </form>
     </div>

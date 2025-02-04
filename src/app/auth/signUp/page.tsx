@@ -27,9 +27,9 @@ const SignUp = () => {
   return (
     <div className=" py-10 w-full h-[80vh]">
       <div className="py-6">
-        <h1 className="text-center font-bold text-[2rem]">Sign in</h1>
+        <h1 className="text-center font-bold text-[2rem]">Create an account</h1>
         <p className="text-sm text-center opacity-70 py-3">
-          continue your journalling journey
+          Begin your journalling journey
         </p>
       </div>
       <form
@@ -77,12 +77,17 @@ const SignUp = () => {
             type="submit"
             className="px-2 w-full rounded-md py-2 bg-backgroundShade max-w-[22em] bg-stone-900 text-white"
           >
-            Sign in
+            Create account
           </button>
         </div>
 
         <div className="py-5">
-            <p>Have an account already? <Link href="/signIn" className="underline text-blue-600 font-bold">Sign In</Link></p>
+          <p>
+            Have an account already?{" "}
+            <Link href="/auth/signIn" className="underline text-blue-600 font-bold">
+              Sign In
+            </Link>
+          </p>
         </div>
       </form>
     </div>

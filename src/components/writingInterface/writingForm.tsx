@@ -57,8 +57,13 @@ const WritingForm = () => {
       className="w-full justify-center  flex-col items-center"
     >
       <div className="">
+        {textAreaActive && (
+          <p className="">Your journal help you reflect best</p>
+        )}
+      </div>
+      <div className="">
         {!textAreaActive && (
-          <p className="mb-10 text-[1.5rem] text-center ">Start Writing...</p>
+          <p className="mb-10 text-[1.5rem] text-center py-5">Start Writing...</p>
         )}
       </div>
       <div className="flex justify-center w-full">
@@ -78,7 +83,7 @@ const WritingForm = () => {
 
       <div className="mt-5 flex justify-end lg:block">
         {textAreaActive && (
-          <button type="submit" className="btn">
+          <button type="submit" className=" text-white btn">
             Save
           </button>
         )}
