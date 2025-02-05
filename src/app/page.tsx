@@ -1,21 +1,23 @@
 import Link from "next/link";
+import { CiWifiOff } from "react-icons/ci";
 
 export default function Home() {
   const features = [
     {
       id: 1,
-      title: "",
-      description: "",
+      title: "Offline-first",
+      description:
+        "Your internet speed should not affect your journalling experience. Write your journals anytime, anywhere",
     },
     {
       id: 2,
-      title: "",
-      description: "",
+      title: "Custom reminders",
+      description: "Never forget to journal at your desired time",
     },
     {
       id: 3,
-      title: "",
-      description: "",
+      title: "Seamless Experience",
+      description: "Get in, do one thing, journal!",
     },
   ];
 
@@ -43,8 +45,12 @@ export default function Home() {
           return (
             <div
               key={feature.id}
-              className="lg:w-[15em] w-full lg:h-[12em] h-[16em] rounded-md bg-stone-900"
-            ></div>
+              className="px-4 lg:w-[15em] w-full lg:min-h-[12em] min-h-[16em] flex flex-col items-center justify-center rounded-md bg-stone-900"
+            >
+              <div className="text-[2rem]"><CiWifiOff /></div>
+              <h4 className="text-center font-semi-bold w py-3">{feature.title}</h4>
+              <p className="text-center text-xs w">{feature.description}</p>
+            </div>
           );
         })}
       </div>
