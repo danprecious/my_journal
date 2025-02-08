@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   /* @apply border */
 }
 
@@ -10,84 +10,118 @@
   --background: #ffffff;
   --background-shade: #f0efef;
   --textColor: #171717;
-  --btnColor: #202020; 
+  --btnColor: #202020;
   --btnText: black;
   --border: #707070;
 }
 
-
-
 :root[theme="dark"] {
   --background: #0a0a0a;
-  --background-shade: #1A1A19;
+  --background-shade: #1a1a19;
   --textColor: white;
-  --btnColor: #27FC83;
+  --btnColor: #27fc83;
   --btnText: black;
   --border: #707070;
 }
 :root[theme="dark-contrast"] {
   --background: #0a0a0a;
-  --background-shade: #1A1A19;
+  --background-shade: #1a1a19;
   --textColor: white;
-  --btnColor: #27FC83;
+  --btnColor: #27fc83;
   --btnText: black;
   --border: #7070702c;
 }
 :root[theme="dark-dim"] {
-  --background: #23221C;
-  --background-shade: #1A1A19;
-  --textColor: #DBD1D1;
-  --btnColor: #27FC83;
+  --background: #23221c;
+  --background-shade: #1a1a19;
+  --textColor: #dbd1d1;
+  --btnColor: #27fc83;
   --btnText: black;
   --border: #707070;
 }
 
-
 :root[theme="serpia-contrast"] {
-  --background: #D1AF27;
+  --background: #d1af27;
   --background-shade: #dab937;
   --textColor: black;
   --btnColor: black;
   --btnText: white;
   --border: #22222257;
-  --accent: 
+  --accent: ;
 }
 :root[theme="serpia-lighter"] {
-  --background: #FFECA1;
-  --background-shade: #FFECA1;
+  --background: #ffeca1;
+  --background-shade: #ffeca1;
   --textColor: black;
   --btnColor: black;
   --btnText: white;
   --border: #7070708f;
-  --accent: 
+  --accent: ;
 }
 
-:root[theme = "grayscale"] {
-  --background: #F1F1F1;
+:root[theme="grayscale"] {
+  --background: #f1f1f1;
   --background-shade: #ffffff;
   --textColor: black;
   --border: #707070;
   --btnColor: black;
   --btnText: white;
-
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --background-shade: #1A1A19;
+    --background-shade: #1a1a19;
     --textColor: #ededed;
-    --btnColor: #27FC83;
+    --btnColor: #27fc83;
     --btnText: black;
     --border: #70707067;
   }
 }
 
+.comp-border {
+  @apply border-solid border-[var(--border)] border-opacity-5 border-[1px];
+}
 
-  .comp-border{
-    @apply border-solid border-[var(--border)] border-opacity-5 border-[1px];
-  }
+.btn {
+  @apply bg-btnColor px-8 py-2 rounded-lg text-btnText font-semibold hover:bg-green-500;
+}
 
-  .btn{
-    @apply bg-btnColor px-8 py-2 rounded-lg text-btnText font-semibold hover:bg-green-500;
+.gradient-con {
+  position: relative;
+  display: inline-block;
+  padding: 2px;
+  border-radius: 5%;
+  overflow: hidden;
+  transition: all ease-in-out 3.5s;
+}
+.gradient-con:hover{
+  /* padding: 5px; */
+}
+
+.gradient-con::after {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  /* width: 100em; */
+  background: conic-gradient(from 0deg,  transparent, transparent,  rgb(36, 219, 97), transparent,  transparent, transparent, rgb(36, 219, 97));
+   background-size: 100% 100%;
+  z-index: -1;
+  border-radius: 20%;
+  animation: animateBorder 10s ease-in-out infinite;
+}
+
+.gradient-con:hover::after {
+  animation-duration: 20s ;
+
+
+}
+
+@keyframes animateBorder {
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -58,7 +58,7 @@ const WritingForm = () => {
     >
       <div className="">
         {textAreaActive && (
-          <p className="">Your journal help you reflect best</p>
+          <p className="mb-6">Your journal help you reflect best</p>
         )}
       </div>
       <div className="">
@@ -73,7 +73,7 @@ const WritingForm = () => {
           onFocus={() => {
             setTextAreaActive(true);
           }}
-          className={`resize-none w-full bg-background comp-border outline-none py-1 px-2  lg:h-[70vh ${
+          className={`resize-none w-full bg-background comp-border outline-none py-1 px-2  lg:h-[70vh] ${
             textAreaActive
               ? "h-[70vh]  lg-w-[100%]"
               : "rounded-[2rem]  lg:w-[90%] transition-all h-[2.5em]"

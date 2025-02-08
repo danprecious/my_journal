@@ -1,8 +1,10 @@
 "use client";
 
+import { signUpUrl } from "@/app/utils/baseUrl";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -14,8 +16,35 @@ const signUpSchema = z.object({
 });
 
 const SignUp = () => {
+  const [signUpSuccess, setSignUpSuccess] = useState(false);
+
   const signUpUser = async (data: any) => {
     console.log(data);
+
+    const { confirmPassword, ...rest } = data;
+
+    console.log(signUpUrl);
+    console.log(rest);
+
+    try {
+      let response = await axios.post(
+        signUpUrl,
+        { ...rest },
+        
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true 
+        }
+      );
+
+      console.log(response);
+      setSignUpSuccess(true);
+    } catch (error) {
+      console.log("Error signing in");
+      setSignUpSuccess(false);
+      console.error(error);
+      // throw new Error(error)
+    }
   };
 
   const {
@@ -41,7 +70,7 @@ const SignUp = () => {
             type="text"
             id="name"
             {...register("name")}
-            placeholder="Name"
+            placeholder="Your name?"
             className="bg-transparent rounded-md comp-border h-fit py-2 px-2 w-full lg:w-[50%] max-w-[22em] "
           />
         </div>
@@ -75,7 +104,7 @@ const SignUp = () => {
         <div className="py-2 w-full  flex justify-center">
           <button
             type="submit"
-            className="px-2 w-full rounded-md py-2 bg-backgroundShade max-w-[22em] bg-stone-900 text-white"
+            className="px-2 w-full rounded-md py-2 bg-btnColor hover:bg-[#27fc83]  max-w-[22em] text-white"
           >
             Create account
           </button>
@@ -84,7 +113,10 @@ const SignUp = () => {
         <div className="py-5">
           <p>
             Have an account already?{" "}
-            <Link href="/auth/signIn" className="underline text-blue-600 font-bold">
+            <Link
+              href="/auth/signIn"
+              className="underline text-btnColor hover:text-[#27fc83] font-bold"
+            >
               Sign In
             </Link>
           </p>

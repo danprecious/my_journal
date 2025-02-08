@@ -32,7 +32,7 @@ const History: React.FC<mockHistoryData> = ({ data }) => {
         {journals?.map((journal): React.ReactNode => {
           return (
             <Link
-              href={`/viewJournal/${journal.id}`}
+              href={`/journalBoard/viewJournal/${journal.id}`}
               key={journal.id}
               className=" py-3 px-2 flex border-y-[1px] border-solid border-stone-500 border-opacity-10 w-full hover:opacity-75 hover:border-opacity-100 "
             >

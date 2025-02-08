@@ -1,8 +1,10 @@
 "use client";
 
+import { loginUrl } from "@/app/utils/baseUrl";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -12,8 +14,22 @@ const signUpSchema = z.object({
 });
 
 const SignIn = () => {
+  const [signInSuccess, setSignInSuccess] = useState(false);
+
   const signInUser = async (data: any) => {
     console.log(data);
+
+    // console.log(loginUrl);
+
+    try {
+      const response = axios.post(loginUrl, {
+        data: data,
+        headers: { "Content-Type": "application/json" },
+      });
+      setSignInSuccess(true);
+    } catch (error) {
+      setSignInSuccess(false);
+    }
   };
 
   const {
@@ -36,7 +52,12 @@ const SignIn = () => {
       >
         <div className="py-5 w-full max-w-[22em] flex justify-center">
           <p className="px-2">Dont have an account? </p>
-            <Link href = "/auth/signUp" className="underline px-2 text-right text-blue-600">Create one</Link>
+          <Link
+            href="/auth/signUp"
+            className="underline px-2 text-right text-btnColor hover:text-[#27fc83] font-bold"
+          >
+            Create one
+          </Link>
         </div>
         <div className="w-full flex justify-center mb-3">
           <input
@@ -58,15 +79,21 @@ const SignIn = () => {
         </div>
 
         <div className="py-2 w-full  flex justify-center">
-            <button type="submit" className="px-2 w-full rounded-md py-2 bg-backgroundShade max-w-[22em] bg-stone-900 text-white">Sign in</button>
+          <button
+            type="submit"
+            className="px-2 w-full rounded-md py-2 bg-btnColor max-w-[22em] hover:hover:bg-[#27fc83] hover:text-black text-white"
+          >
+            Sign in
+          </button>
         </div>
         <div className="py-5 max-w-[22em] ">
-            <Link href = "/auth/forgotPassword" className="underline text-right text-blue-600">forgot password?</Link>
+          <Link
+            href="/auth/forgotPassword"
+            className="underline text-right text-btnColor hover:text-[#27fc83] font-bold"
+          >
+            forgot password?
+          </Link>
         </div>
-
-
-
-
       </form>
     </div>
   );
