@@ -35,7 +35,7 @@ const SignUp = () => {
           headers: { "Content-Type": "application/json" },
           withCredentials: true 
         }
-      );
+      ); 
 
       console.log(response);
       setSignUpSuccess(true);

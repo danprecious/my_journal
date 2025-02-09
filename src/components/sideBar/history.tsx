@@ -8,7 +8,7 @@ import { mockHistoryData } from "@/app/types/globalTypes";
 import ByInput from "./search/byInput";
 import { retrieveJournal } from "@/app/utils/localStoreUtils";
 
-const History: React.FC<mockHistoryData> = ({ data }) => {
+const History: React.FC = () => {
   // const [historyData, setHistoryData] = useState<mockHistoryData>(data);
 
   const [searchQuery, setSearchQuery] = useState("")
@@ -20,7 +20,7 @@ const History: React.FC<mockHistoryData> = ({ data }) => {
   
 
   return (
-    <div className="w-full min-w-full">
+    <div className="w-full ">
       <div className="px-1 pb-5 flex justify-center">
         <input
           className="comp-border max-w-[25em] py-2 px-2 rounded-md w-full bg-transparent text-sm"
@@ -28,7 +28,7 @@ const History: React.FC<mockHistoryData> = ({ data }) => {
         />
       </div>
 
-      <div className="overflow-y-scroll">
+      <div className="overflow-y-scroll max-h-[70%] min-h-[50%]">
         {journals?.map((journal): React.ReactNode => {
           return (
             <Link

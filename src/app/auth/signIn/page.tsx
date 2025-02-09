@@ -4,6 +4,7 @@ import { loginUrl } from "@/app/utils/baseUrl";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -16,16 +17,21 @@ const signUpSchema = z.object({
 const SignIn = () => {
   const [signInSuccess, setSignInSuccess] = useState(false);
 
+  const router = useRouter();
+
   const signInUser = async (data: any) => {
     console.log(data);
 
-    // console.log(loginUrl);
-
     try {
-      const response = axios.post(loginUrl, {
-        data: data,
+      const response = await axios.post(loginUrl, data, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true,
       });
+
+      if (response.status == 200) {
+        router.push("/journalBoard");
+      }
+
       setSignInSuccess(true);
     } catch (error) {
       setSignInSuccess(false);
